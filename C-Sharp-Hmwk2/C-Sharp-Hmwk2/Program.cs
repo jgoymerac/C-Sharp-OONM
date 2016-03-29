@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
+using System.Windows;
 namespace C_Sharp_Hmwk2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int i;
+            int x;
             float num;
             Norm1<float> norm;
-
-
+            List<CylnCord<float>> list= new List<CylnCord<float>>;
+                     
 
 
             Console.WriteLine("Enter the file name:");
@@ -24,8 +24,26 @@ namespace C_Sharp_Hmwk2
             {
                 using( StreamReader sr = new StreamReader(filename))
                 {
+                    x = int.Parse(sr.ReadLine());
+                    for(int i=0;i< x; i++)
+                    {
+                        string temp = sr.ReadLine();
+                        string[] tempSplit = temp.Split(' ');
+                        float r, theta, z;
+                        
+                        r = float.Parse(tempSplit[0]);
+                        theta = float.Parse(tempSplit[1]);
+                        z = float.Parse(tempSplit[2]);
+
+                        list.Add(CylnCord<float>(r, theta, z));
+                    }
 
                 }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
             }
 
         }
