@@ -32,7 +32,8 @@ namespace C_Sharp_Hmwk2
                         theta = float.Parse(tempSplit[1]);
                         z = float.Parse(tempSplit[2]);
                         CylnCord<float> tempCord;
-                        tempCord.set(r, theta, z);
+                        tempCord = new CylnCord<float>(r,theta,z);
+                        
                         
                         list.Add(tempCord);
                     }
