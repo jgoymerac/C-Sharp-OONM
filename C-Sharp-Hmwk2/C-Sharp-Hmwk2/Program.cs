@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Windows;
+
 namespace C_Sharp_Hmwk2
 {
     class Program
@@ -13,8 +10,8 @@ namespace C_Sharp_Hmwk2
         {
             int x;
             float num;
-            Norm1<float> norm;
-            List<CylnCord<float>> list= new List<CylnCord<float>>;
+            //Norm1<float> norm;
+            List<CylnCord<float>> list= new List<CylnCord<float>>();
                      
 
 
@@ -34,8 +31,10 @@ namespace C_Sharp_Hmwk2
                         r = float.Parse(tempSplit[0]);
                         theta = float.Parse(tempSplit[1]);
                         z = float.Parse(tempSplit[2]);
-
-                        list.Add(CylnCord<float>(r, theta, z));
+                        CylnCord<float> tempCord;
+                        tempCord.set(r, theta, z);
+                        
+                        list.Add(tempCord);
                     }
 
                 }
